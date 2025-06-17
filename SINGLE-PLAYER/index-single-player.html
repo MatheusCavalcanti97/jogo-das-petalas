@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Girassol da Palavra - 1 Jogador</title>
+    <link rel="stylesheet" href="single-player.css" />
+  </head>
+  <body>
+    <div id="game-container" class="visible">
+      <div class="flower" id="flower">
+        <div class="center"></div>
+      </div>
+
+      <div class="game">
+        <p id="hint"></p>
+        <p id="turno" class="bold-margin">Seu turno</p>
+        <p id="hidden-word"></p>
+        <input
+          type="text"
+          id="guess"
+          maxlength="1"
+          autofocus
+          placeholder="Digite uma letra"
+        />
+        <p id="message"></p>
+      </div>
+
+      <div class="controls-container">
+        <div id="keyboard-panel">
+          <div id="virtual-keyboard"></div>
+        </div>
+
+        <div id="player-stats-panel" class="players-panel">
+          <div class="player" id="player1-panel">
+            <h3>Jogador 1</h3>
+            <p>Acertos: <span id="player1-correct">0</span></p>
+            <p>Erros: <span id="player1-wrong">0</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div id="buttons-container" class="buttons-row">
+        <button id="reset-button" class="btn-reset">Reiniciar Jogo</button>
+        <button
+          id="back-button"
+          class="btn-back"
+          onclick="location.href='index.html'"
+        >
+          Voltar à página inicial
+        </button>
+      </div>
+    </div>
+
+    <script src="single-player.js"></script>
+  </body>
+</html>
