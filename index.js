@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Detecta se o path inclui o nome do repositório (GitHub Pages)
   const isGitHubPages = window.location.hostname.includes("github.io");
   const base = isGitHubPages ? "/jogo-das-petalas/" : "./";
 

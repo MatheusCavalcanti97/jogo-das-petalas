@@ -35,7 +35,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  overflow: hidden;
+  overflow: scroll;
   box-sizing: border-box;
   position: relative;
   color: #ffffff;
@@ -342,6 +342,8 @@ button:active {
   .flower {
     width: 180px;
     height: 180px;
+    padding-top: 80px;
+    padding-bottom: 50px;
   }
 
   .petal {
