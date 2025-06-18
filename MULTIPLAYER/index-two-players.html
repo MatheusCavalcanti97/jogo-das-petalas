@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Girassol da Palavra - 2 Jogadores</title>
+    <link rel="stylesheet" href="two-players.css" />
+  </head>
+  <body>
+    <div class="tela ativa" id="tela-nomes">
+      <h2>Digite os Nomes dos Jogadores</h2>
+      <form id="form-nomes">
+        <input
+          type="text"
+          id="player1"
+          placeholder="Nome do Jogador 1"
+          required
+        />
+        <input
+          type="text"
+          id="player2"
+          placeholder="Nome do Jogador 2"
+          required
+        />
+        <button type="submit">Avançar</button>
+      </form>
+    </div>
+
+    <div class="tela" id="tela-palavra">
+      <h2>Jogador 1, escolha a palavra e a dica</h2>
+      <form id="form-palavra">
+        <input
+          type="text"
+          id="palavra"
+          placeholder="Palavra secreta"
+          required
+        />
+        <input
+          type="text"
+          id="dica"
+          placeholder="Dica para a palavra"
+          required
+        />
+        <button type="submit">Iniciar Jogo</button>
+      </form>
+    </div>
+
+    <div class="tela" id="tela-jogo">
+      <div class="flower" id="flower"><div class="center"></div></div>
+
+      <div class="game">
+        <p id="hint"></p>
+        <p id="turno" class="bold-margin">Turno atual</p>
+        <p id="hidden-word"></p>
+        <p id="message"></p>
+      </div>
+
+      <div class="controls-container">
+        <div id="keyboard-panel">
+          <div id="virtual-keyboard"></div>
+        </div>
+
+        <div id="player-stats-panel" class="players-panel">
+          <div class="player" id="player1-panel">
+            <h3>Jogador 1</h3>
+            <p>Acertos: <span id="player1-correct">0</span></p>
+            <p>Erros: <span id="player1-wrong">0</span></p>
+          </div>
+          <div class="player" id="player2-panel">
+            <h3>Jogador 2</h3>
+            <p>Acertos: <span id="player2-correct">0</span></p>
+            <p>Erros: <span id="player2-wrong">0</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="buttons-row">
+        <button onclick="location.reload()">Reiniciar</button>
+        <button onclick="location.href='index.html'">Voltar</button>
+      </div>
+    </div>
+
+    <script src="./two-players.js"></script>
+  </body>
+</html>
