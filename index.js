@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const base = window.location.pathname.replace(/\/[^/]*$/, "/");
+  // Detecta se o path inclui o nome do repositório (GitHub Pages)
+  const isGitHubPages = window.location.hostname.includes("github.io");
+  const base = isGitHubPages ? "/jogo-das-petalas/" : "./";
 
   document.getElementById("soloBtn").addEventListener("click", () => {
     window.location.href = base + "SINGLE-PLAYER/index-single-player.html";
