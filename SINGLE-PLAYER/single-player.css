@@ -109,6 +109,8 @@ body {
   height: 250px;
   max-width: 100%;
   box-sizing: border-box;
+  color: #000;
+  font-size: 25px;
 }
 
 #hidden-word {

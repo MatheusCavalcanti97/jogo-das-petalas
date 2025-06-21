@@ -210,9 +210,9 @@ button:hover {
 #turno,
 #hint {
   text-align: center;
-  font-size: 18px;
+  font-size: 30px;
   margin: 10px 0;
-  color: #222;
+  color: #000000;
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.9);
 }
 

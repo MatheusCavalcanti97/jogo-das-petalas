@@ -119,7 +119,7 @@ function iniciarJogo() {
   letrasReveladas = Array(palavra.length).fill("_");
   petalas = [];
 
-  hint.textContent = `Dica: ${dica}`;
+  hint.innerHTML = `<strong>Dica:</strong> <i>${dica}</i>`;
   atualizarPalavra();
   criarPetalas(palavra.length);
 

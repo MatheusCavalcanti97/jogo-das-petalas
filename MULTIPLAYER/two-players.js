@@ -83,7 +83,7 @@ function iniciarJogo2Jogadores(palavraInput, dicaInput) {
   currentPlayer = 1;
   flower.innerHTML = `<div class="center"></div>`;
 
-  hint.textContent = `Dica: ${dica}`;
+  hint.innerHTML = `<strong>Dica:</strong> <i>${dica}</i>`;
   atualizarPalavra();
   criarPetalas(palavra.length);
   atualizarPainel();
