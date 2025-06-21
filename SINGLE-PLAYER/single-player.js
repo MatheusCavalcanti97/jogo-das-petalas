@@ -81,7 +81,6 @@ let playerStats = {
   wrong: 0,
 };
 
-/*const letrasTeclado = "abcdefghijklmnopqrstuvwxyz".split("");*/
 const letrasTeclado = "abcdefghijklmnopqrstuvwxyzçáéíóúàãõâêîôû".split("");
 const backButton = document.getElementById("back-button");
 
@@ -120,7 +119,7 @@ function iniciarJogo() {
   letrasReveladas = Array(palavra.length).fill("_");
   petalas = [];
 
-  hint.textContent = `Dica: ${dica}`;
+  hint.innerHTML = `<strong style="font-size: 35px;">Dica:</strong> <i>${dica}</i>`;
   atualizarPalavra();
   criarPetalas(palavra.length);
 
