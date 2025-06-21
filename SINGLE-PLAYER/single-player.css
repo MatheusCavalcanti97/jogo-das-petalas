@@ -9,7 +9,7 @@
 html,
 body {
   margin: 0;
-  padding: 0;
+  padding-top: 30px;
   overflow: hidden;
   font-family: "Comic Neue", cursive, sans-serif;
   color: #3b3b3b;
