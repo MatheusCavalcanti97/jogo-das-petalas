@@ -575,6 +575,7 @@ body {
 }
 
 .game {
+  margin-top: 100px;
   width: 480px;
   max-width: 480px;
   text-align: center;
@@ -582,7 +583,6 @@ body {
   height: 250px;
   max-width: 100%;
   box-sizing: border-box;
-  margin: 20px;
 }
 
 #hidden-word {
