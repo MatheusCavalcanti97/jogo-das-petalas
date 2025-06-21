@@ -111,6 +111,8 @@ body {
   box-sizing: border-box;
   color: #000;
   font-size: 25px;
+  margin-bottom: 50px;
+  padding-bottom: 20px;
 }
 
 #hidden-word {
@@ -186,6 +188,7 @@ input#guess {
 
 #message {
   margin-top: 10px;
+  margin-bottom: 30px;
   font-family: "Fredoka One", cursive, sans-serif;
   font-weight: 700;
   color: #b22222;
@@ -193,6 +196,8 @@ input#guess {
   user-select: none;
   max-width: 100%;
   box-sizing: border-box;
+  z-index: 2;
+  position: relative;
 }
 
 .controls-container {
@@ -380,6 +385,8 @@ button:active {
     overflow-y: auto;
     overflow-x: hidden;
     padding: 10px 5px;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
   }
 
   #hidden-word {
