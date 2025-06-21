@@ -158,7 +158,7 @@ function processarChute(letra) {
     if (!letrasReveladas.includes("_")) {
       fimDeJogo(
         `🎉 ${currentPlayer === 1 ? player1Name : player2Name} venceu!`,
-        "white"
+        "Black"
       );
     }
   } else {
