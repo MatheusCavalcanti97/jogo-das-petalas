@@ -46,6 +46,13 @@ window.addEventListener("DOMContentLoaded", () => {
       iniciarJogo2Jogadores(palavra, dica);
     }
   });
+
+  const backButton = document.getElementById("back-button");
+  if (backButton) {
+    backButton.addEventListener("click", () => {
+      window.location.href = "../index.html";
+    });
+  }
 });
 
 const flower = document.getElementById("flower");
@@ -92,9 +99,8 @@ function atualizarPainel() {
 }
 
 function atualizarTurno() {
-  turno.textContent = `Vez de: ${
-    currentPlayer === 1 ? player1Name : player2Name
-  }`;
+  const nomeJogador = currentPlayer === 1 ? player1Name : player2Name;
+  turno.innerHTML = `Vez de: <strong>${nomeJogador}</strong>`;
 }
 
 function criarPetalas(qtd) {
@@ -149,11 +155,12 @@ function processarChute(letra) {
     });
     atualizarPalavra();
     atualizarPainel();
-    if (!letrasReveladas.includes("_"))
+    if (!letrasReveladas.includes("_")) {
       fimDeJogo(
         `🎉 ${currentPlayer === 1 ? player1Name : player2Name} venceu!`,
         "white"
       );
+    }
   } else {
     if (petalas.length > 0) {
       const ultimaPetala = petalas.pop();
@@ -161,8 +168,9 @@ function processarChute(letra) {
       tentativasErradas++;
       playerStats[currentPlayer].wrong++;
       atualizarPainel();
-      if (petalas.length === 0)
+      if (petalas.length === 0) {
         fimDeJogo(`💀 Fim de jogo! A palavra era: ${palavra}`, "black");
+      }
     }
     alternarJogador();
   }
@@ -171,6 +179,45 @@ function processarChute(letra) {
 function fimDeJogo(mensagem, cor) {
   jogoAtivo = false;
   message.style.color = cor;
-  message.textContent = mensagem;
+  message.innerHTML = `${mensagem}<br><br><em>Clique em voltar para voltar pra escolha do Modo Jogar Sozinho com um Companheiro (a) ou espere para continuar jogando.</em>`;
+
+  if (cor === "black") {
+    chuvaDeGirassoisTristes(50);
+  } else {
+    chuvaDeGirassoisFelizes(50);
+  }
+
   setTimeout(() => location.reload(), 7000);
+}
+
+function criarGirassolTriste() {
+  const emoji = document.createElement("div");
+  emoji.classList.add("falling-sunflower");
+  emoji.textContent = "🌻😢";
+  emoji.style.left = `${Math.random() * 100}vw`;
+  document.body.appendChild(emoji);
+  setTimeout(() => emoji.remove(), 4000);
+}
+
+function chuvaDeGirassoisTristes(qtd = 50) {
+  for (let i = 0; i < qtd; i++) {
+    setTimeout(criarGirassolTriste, i * 80);
+  }
+}
+
+function criarGirassolFeliz() {
+  const emoji = document.createElement("div");
+  emoji.classList.add("falling-sunflower");
+  const emojisFelizes = ["🌻😊", "🌞🌼", "😄🌻", "🌻🎉", "🌼😁", "🌞😃"];
+  emoji.textContent =
+    emojisFelizes[Math.floor(Math.random() * emojisFelizes.length)];
+  emoji.style.left = `${Math.random() * 100}vw`;
+  document.body.appendChild(emoji);
+  setTimeout(() => emoji.remove(), 4000);
+}
+
+function chuvaDeGirassoisFelizes(qtd = 50) {
+  for (let i = 0; i < qtd; i++) {
+    setTimeout(criarGirassolFeliz, i * 80);
+  }
 }

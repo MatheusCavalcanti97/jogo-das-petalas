@@ -7,25 +7,72 @@
 }
 
 body {
+  position: relative;
   font-family: "Comic Neue", cursive, sans-serif;
-  background: linear-gradient(to right, #ffdde1, #ee9ca7);
   color: #333;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
+  overflow-x: hidden;
+
+  background: linear-gradient(90deg, #ff6a88 0%, #ff99ac 50%, #ffb347 100%);
+  background-size: 400% 400%;
+  animation: backgroundShift 40s ease infinite;
+}
+
+@keyframes backgroundShift {
+  0% {
+    background: linear-gradient(90deg, #ff6a88 0%, #ff99ac 50%, #ffb347 100%);
+  }
+  25% {
+    background: linear-gradient(90deg, #00c6ff 0%, #f0f0c9 100%);
+  }
+  50% {
+    background: linear-gradient(90deg, #9d50bb 0%, #6e48aa 50%, #ff6e7f 100%);
+  }
+  75% {
+    background: linear-gradient(90deg, #00f260 0%, #0575e6 100%);
+  }
+  100% {
+    background: linear-gradient(90deg, #ff6a88 0%, #ff99ac 50%, #ffb347 100%);
+  }
+}
+
+.img-menino,
+.img-menina {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  max-height: 60vh;
+  height: auto;
+  width: auto;
+  z-index: 1;
+  user-select: none;
+  pointer-events: none;
+}
+
+.img-menino {
+  left: 5%;
+}
+
+.img-menina {
+  right: 5%;
 }
 
 .tela {
   display: none;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.92);
   padding: 30px;
   border-radius: 20px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   max-width: 600px;
   width: 100%;
   transition: all 0.3s ease-in-out;
+  position: relative;
+  z-index: 10;
+  color: #222;
 }
 
 .tela.ativa {
@@ -50,6 +97,8 @@ input {
   font-size: 16px;
   border: 2px solid #d7bce8;
   border-radius: 10px;
+  background-color: #fff;
+  color: #222;
 }
 
 button {
@@ -138,6 +187,7 @@ button:hover {
   border-radius: 10px;
   padding: 10px;
   text-align: center;
+  color: #222;
 }
 
 .buttons-row {
@@ -152,6 +202,8 @@ button:hover {
   font-size: 28px;
   letter-spacing: 8px;
   margin: 20px 0;
+  color: #222;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.9);
 }
 
 #message,
@@ -160,6 +212,25 @@ button:hover {
   text-align: center;
   font-size: 18px;
   margin: 10px 0;
+  color: #222;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.9);
+}
+
+.falling-sunflower {
+  position: fixed;
+  top: -40px;
+  font-size: 70px;
+  user-select: none;
+  pointer-events: none;
+  animation: falling 4s linear forwards;
+  z-index: 9999;
+}
+
+@keyframes falling {
+  to {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
 }
 
 @keyframes girar {
@@ -185,5 +256,26 @@ button:hover {
     width: 30px;
     height: 30px;
     font-size: 14px;
+  }
+
+  .img-menino,
+  .img-menina {
+    max-height: 40vh;
+  }
+}
+
+@media (max-width: 420px) {
+  .img-menino,
+  .img-menina {
+    display: none;
+  }
+
+  body {
+    background-image: url("../assets/images/menino.png"),
+      url("../assets/images/menina.png"),
+      linear-gradient(to right, #ffdde1, #ee9ca7);
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: 10% 80%, 90% 20%, center;
+    background-size: 50px 50px, 50px 50px, cover;
   }
 }

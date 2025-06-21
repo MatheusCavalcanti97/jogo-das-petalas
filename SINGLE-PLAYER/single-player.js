@@ -81,7 +81,6 @@ let playerStats = {
   wrong: 0,
 };
 
-/*const letrasTeclado = "abcdefghijklmnopqrstuvwxyz".split("");*/
 const letrasTeclado = "abcdefghijklmnopqrstuvwxyzçáéíóúàãõâêîôû".split("");
 const backButton = document.getElementById("back-button");
 

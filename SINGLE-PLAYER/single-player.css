@@ -12,11 +12,31 @@ body {
   padding: 0;
   overflow: hidden;
   font-family: "Comic Neue", cursive, sans-serif;
-  background: linear-gradient(135deg, #289d10 0%, #024d25 100%);
   color: #3b3b3b;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
+  background: linear-gradient(90deg, #ff6a88 0%, #ff99ac 50%, #ffb347 100%);
+  background-size: 400% 400%;
+  animation: backgroundShift 40s ease infinite;
+}
+
+@keyframes backgroundShift {
+  0% {
+    background: linear-gradient(90deg, #ff6a88 0%, #ff99ac 50%, #ffb347 100%);
+  }
+  25% {
+    background: linear-gradient(90deg, #00c6ff 0%, #f0f0c9 100%);
+  }
+  50% {
+    background: linear-gradient(90deg, #9d50bb 0%, #6e48aa 50%, #ff6e7f 100%);
+  }
+  75% {
+    background: linear-gradient(90deg, #00f260 0%, #0575e6 100%);
+  }
+  100% {
+    background: linear-gradient(90deg, #ff6a88 0%, #ff99ac 50%, #ffb347 100%);
+  }
 }
 
 body {
@@ -35,7 +55,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  overflow: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
   box-sizing: border-box;
   position: relative;
   color: #ffffff;
@@ -82,7 +103,8 @@ body {
   text-align: center;
   max-height: 250px;
   height: 250px;
-  
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 #hidden-word {
@@ -101,6 +123,8 @@ body {
   gap: 3px;
   min-height: 50px;
   overflow-wrap: break-word;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 #hidden-word span {
@@ -161,6 +185,8 @@ input#guess {
   color: #b22222;
   min-height: 28px;
   user-select: none;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .controls-container {
@@ -170,6 +196,7 @@ input#guess {
   max-width: 100%;
   padding: 10px;
   gap: 10px;
+  box-sizing: border-box;
 }
 
 .controls-container > div {
@@ -202,6 +229,7 @@ input#guess {
   user-select: none;
   justify-content: center;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .buttons-row {
@@ -293,57 +321,79 @@ button:active {
     opacity: 0;
   }
 }
-@media (max-width: 768px) {
-  .controls-container {
-    flex-direction: column;
-    width: 90%;
-    padding: 5px; 
-    gap: 8px;
+
+.img-menino,
+.img-menina {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  max-height: 60vh;
+  width: auto;
+  z-index: 0;
+  opacity: 0.12;
+  user-select: none;
+  pointer-events: none;
+  transition: opacity 0.3s ease, top 0.3s ease, transform 0.3s ease;
+}
+
+.img-menino {
+  left: 5%;
+}
+
+.img-menina {
+  right: 5%;
+}
+
+@media (max-width: 1024px) {
+  .img-menino,
+  .img-menina {
+    max-height: 40vh;
+    opacity: 0.08;
+    top: 10%;
+    transform: translateY(0);
   }
 
-  .controls-container > div {
-    flex-basis: 100%;
-    min-width: auto;
+  .img-menino {
+    left: 10%;
   }
 
-  #virtual-keyboard {
-    grid-template-columns: repeat(7, 1fr);
-    gap: 6px;
+  .img-menina {
+    right: 10%;
   }
+}
 
-  .players-panel {
-    height: auto;
-    max-width: 100%;
-    width: 100%;
-    padding: 10px 8px;
-    margin-top: 10px; 
-  }
-
-  .buttons-row {
-    flex-direction: column;
-    width: 90%;
-    padding: 10px 0;
-    gap: 10px;
-  }
-
-  .buttons-row > button {
-    flex-basis: 100%;
-    min-width: auto;
-    max-width: 100%;
-    font-size: 1rem; 
+@media (max-width: 620px) {
+  #game-container {
+    max-height: 90vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 10px 5px;
   }
 
   #hidden-word {
     font-size: 1.4rem;
-    max-width: 100%;
+    padding: 8px 10px;
+    max-width: 95%;
     min-height: 40px;
+  }
+
+  #hidden-word span {
+    width: 26px;
+    height: 20px;
+    font-size: 1.2rem;
+  }
+
+  #message {
+    font-size: 1rem;
+    min-height: 24px;
+    margin-top: 6px;
   }
 
   .flower {
     width: 180px;
     height: 180px;
-    padding-top: 80px;
-    padding-bottom: 50px;
+    padding-top: 60px;
+    padding-bottom: 40px;
   }
 
   .petal {
@@ -356,9 +406,56 @@ button:active {
     height: 50px;
   }
 
+  #virtual-keyboard {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    width: 100%;
+  }
+
   .key {
     padding: 8px 10px;
     font-size: 14px;
     border-radius: 4px;
+  }
+
+  .controls-container {
+    flex-direction: column;
+    width: 95%;
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .controls-container > div {
+    flex-basis: 100%;
+    min-width: auto;
+  }
+
+  .players-panel {
+    height: auto;
+    max-width: 100%;
+    width: 100%;
+    padding: 10px 8px;
+    margin-top: 10px;
+  }
+
+  .buttons-row {
+    flex-direction: column;
+    width: 95%;
+    padding: 10px 0;
+    gap: 10px;
+  }
+
+  .buttons-row > button {
+    flex-basis: 100%;
+    min-width: auto;
+    max-width: 100%;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .img-menino,
+  .img-menina {
+    display: none;
   }
 }
