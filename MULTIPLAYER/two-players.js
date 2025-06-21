@@ -179,7 +179,7 @@ function processarChute(letra) {
 function fimDeJogo(mensagem, cor) {
   jogoAtivo = false;
   message.style.color = cor;
-  message.innerHTML = `${mensagem}<br><br><em>Clique em voltar para voltar pra escolha do Modo Jogar Sozinho com um Companheiro (a) ou espere para continuar jogando.</em>`;
+  message.innerHTML = `<strong>${mensagem}<br><br><em>Clique em voltar para voltar pra escolha do Modo Jogar Sozinho com um Companheiro (a) ou espere para continuar jogando.</em></strong>`;
 
   if (cor === "black") {
     chuvaDeGirassoisTristes(50);
