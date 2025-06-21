@@ -482,7 +482,6 @@ button:active {
 html,
 body {
   margin: 0;
-  padding-top: 70px;
   overflow-y: auto;
   overflow-x: hidden;
   font-family: "Comic Neue", cursive, sans-serif;
@@ -521,7 +520,7 @@ body {
 }
 
 #game-container {
-  padding-top: 30px;
+  margin: 0px;
   max-width: 100%;
   width: 100%;
   height: auto;
